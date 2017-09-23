@@ -1,0 +1,231 @@
+
+\newcommand{\doctitle}{Position in Plane from Time of Circular Wavefront's
+Arrival at Each of Three Detectors}
+
+\documentclass[twocolumn]{article}
+
+\usepackage{amsmath}        % for \text
+\usepackage[english]{babel} % language selection
+\usepackage{amsfonts}       % for \mathbb
+
+% for formatting figure captions
+\usepackage[margin=10pt,font={sf},labelfont=bf]%
+           {caption}        % for formatting figure captions
+
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lastpage}
+\usepackage{natbib}
+\usepackage{tikz}
+\usepackage{times}
+\usepackage{vmargin}
+\usepackage{xcolor}
+
+\usepackage[colorlinks=true,citecolor=blue,hyperfootnotes=false]
+           {hyperref} % This must be the last package.
+
+\selectlanguage{english} % Configure babel.
+
+% vmargin setup
+\setpapersize{USletter}
+\setmarginsrb%
+{0.375in}%           left
+{0.375in}%           top
+{0.375in}%           right
+{0.5in}%             bottom
+{2\baselineskip}%    headheight
+{2\baselineskip}%    headsep
+{3\baselineskip}%    footheight
+{4\baselineskip}%    footskip
+
+% mydate macro
+\newcommand{\mydate}{%
+   \number\year\space%
+   \ifcase\month\or%
+      Jan\or\ Feb\or\ Mar\or\ Apr\or\ May\or\ Jun\or%
+      Jul\or\ Aug\or\ Sep\or\ Oct\or\ Nov\or\ Dec
+   \fi\space%
+   \number\day%
+}
+
+% fancyhdr settings
+\pagestyle{fancy}
+\lhead{\sffamily\textbf{\doctitle}}
+\chead{}
+\rhead{\sffamily \thepage~of~\pageref{LastPage}}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\lfoot{%
+   \footnotesize\sffamily
+   \begin{minipage}{0.95\textwidth}
+   Copyright\ \copyright\ \ 2014\ \ Thomas E.\ Vaughan.
+   PDF image generated on \mydate.
+   Permission is granted to copy, distribute and/or modify this document under
+   the terms of the GNU Free Documentation License, Version 1.3 or any later
+   version published by the Free Software Foundation; with no Invariant
+   Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the
+   license is included in the section entitled ``GNU Free Documentation
+   License''.
+   \end{minipage}%
+}
+\cfoot{}
+\rfoot{%
+   \begin{minipage}{0.05\textwidth}
+   \begin{flushright}
+   \includegraphics[width=0.85\textwidth]{logo}
+   \end{flushright}
+   \end{minipage}%
+}
+
+\begin{document}
+
+\thispagestyle{fancy}
+
+\begin{abstract}
+
+   If the radius of a circular wavefront, centered on a point $p$ at
+   coordinates $(x_0,y_0)$ in the plane, increase with constant speed $v$, then
+   an array of three detectors, arranged in a triangle of nonzero area, can be
+   used to find $x_0$ and $y_0$.
+
+\end{abstract}
+
+\section{Introduction}
+
+An array of three sensors, each of which records the time of the passage of the
+front of an expanding wave, can be used to locate the epicenter of the wave.
+The solution, however, is hard to find in closed form unless the sensors be
+arranged in a right triangle.
+
+\section{Problem}
+
+At each vertex of a right triangle, a detector records the time of a circular
+wavefront's arrival.  The times refer to the same clock.  The wavefront expands
+with constant speed $v$ from a central point.  Find the location of the point.
+
+\section{Coordinate System}
+
+We must choose a coordinate system in which to solve the problem of converting
+the times of arrival into the coordinates $(x_0, y_0)$ of the center of the
+wavefront.
+
+Let us place the spatial origin at the first detector, which is situated at the
+right angle of the triangle, and the temporal origin at the time of the
+wavefront's arrival at that detector.  So the first detector has coordinates
+$(x_1, y_1) = (0, 0)$, and the wavefront arrives there at time~$t_1 = 0$.
+
+Suppose that the second detector is located at a nonzero distance from the
+first.  Let us choose the direction from the first detector toward the second
+as the direction of the positive $x$~axis.  So the second detector has
+coordinates $(x_2, y_2) = (x_2, 0)$, and the wavefront arrives there at
+time~$t_2$.  Because of our choice, $x_2 > 0$.
+
+Finally, the third detector has coordinates $(0, y_3)$, and the wavefront
+arrives there at time~$t_3$.  Let us choose the direction of the $y$~axis so
+that $y_3 > 0$.
+
+\section{Solution}
+
+We consider the arrival of the wavefront at each detector in turn.  In each
+case,
+\begin{equation}
+   [x_i - x_0]^2 + [y_i - y_0]^2 = v^2 [t_i - t_0]^2,
+\end{equation}
+where $i \in \{1, 2, 3\}$, and $v$ is the speed of the wavefront.  This
+indicates the relationship between the known coordinates $(x_i, y_i)$ of the
+$i$th detector, the known time of arrival $t_i$ at that detector, the unknown
+coordinates $(x_0, y_0)$ of the center of the wavefront, and the unknown time
+$t_0$ at which the wavefront began its radiation from that point.  There are
+three independent equations, one for each detector, and three unknown values.
+
+Let us simplify our notation a bit by a change of variables.  Let us express
+the signed distance traveled by the wavefront, between time~0 and any of the
+four given times, as follows:
+\begin{eqnarray}
+   \tau_0 &=& vt_0\\
+   \tau_1 &=& vt_1 = 0\\
+   \tau_2 &=& vt_2\\
+   \tau_3 &=& vt_3
+\end{eqnarray}
+Let us call each of these a \emph{wavefront displacement}.  Then our
+fundamental equation becomes
+\begin{equation}
+   [x_i - x_0]^2 + [y_i - y_0]^2 = [\tau_i - \tau_0]^2.
+\end{equation}
+The unknowns are $x_0$, $y_0$, and $\tau_0$. Everything else is known, and the
+knowns allow us to write down three equations, enough to solve for the
+unknowns.
+
+\subsection{Arrival at First Detector}
+
+The equation at the first detector is the simplest because each coordinate of
+the detector is zero, and the wavefront displacement at the first detector is
+zero by definition.
+\begin{equation}
+   x_0^2 + y_0^2 = \tau_0^2
+   \label{eq:first}
+\end{equation}
+
+\subsection{Arrival at Second Detector}
+
+The equation at the second detector is more complicated than the equation at
+the first.  Among the three known values at the detector, only the
+$y$~coordinate of the detector is zero.
+\begin{equation}
+   [x_2 - x_0]^2 + y_0^2 = [\tau_2 - \tau_0]^2
+   \label{eq:second}
+\end{equation}
+Subtracting the Equation~\ref{eq:first} from Equation~\ref{eq:second}, we find
+\begin{eqnarray}
+   \nonumber x_2^2 - 2 x_2 x_0 &=& \tau_2^2 - 2 \tau_2 \tau_0\\
+   \nonumber 2 \tau_2 \tau_0   &=& \tau_2^2 - x_2^2 + 2 x_2 x_0\\
+   \tau_0 &=&
+      \frac{1}{\tau_2} \left[\frac{\tau_2^2 - x_2^2}{2} + x_2 x_0\right].
+   \label{eq:t-x}
+\end{eqnarray}
+
+\subsection{Arrival at Third Detector}
+
+The equation at the third detector is as complicated as
+Equation~\ref{eq:second} but has a different form.
+\begin{equation}
+   x_0^2 + [y_3 - y_0]^2 = [\tau_3 - \tau_0]^2
+   \label{eq:third}
+\end{equation}
+Subtracting Equation~\ref{eq:first} from Equation~\ref{eq:third}, we find
+\begin{equation}
+   \tau_0 = \frac{1}{\tau_3} \left[ \frac{\tau_3^2 - y_3^2}{2} + y_3
+   y_0\right].
+   \label{eq:t-y}
+\end{equation}
+
+\subsection{Eliminating $\tau_0$}
+
+Setting the right-hand side of Equation~\ref{eq:t-x} equal to the right-hand
+side of Equation~\ref{eq:t-y}, we find
+\begin{equation}
+   \frac{\tau_3^2 - y_3^2}{2} + y_3 y_0 = \frac{\tau_3}{\tau_2}
+   \left[\frac{\tau_2^2 - x_2^2}{2} + x_2 x_0\right],
+\end{equation}
+which results in
+\begin{equation}
+   y_0 = \frac{1}{y_3} \left[ \frac{\tau_3}{\tau_2} \left[ \frac{\tau_2^2 -
+   x_2^2}{2} + x_2 x_0\right] - \frac{\tau_3^2 - y_3^2}{2} \right].
+\end{equation}
+
+%\bibliographystyle{plainnat}
+%
+%\begin{thebibliography}{}
+%
+%\bibitem[LastName1 et al.(Year)LastName1, LastName2, and LastName3]{CiteTag}
+%LastName1, Initials1, Initials2 LastName2, and Initials3 LastName3\ \
+%``Title of Article''\ \ {\it Title of Journal}, {\bf Volume}: Pages, Year.
+%
+%\end{thebibliography}
+
+\newpage
+
+\input{fdl-1.3}
+
+\end{document}
+
