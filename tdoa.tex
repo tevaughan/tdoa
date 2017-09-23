@@ -177,10 +177,12 @@ $y$~coordinate of the detector is zero.
 \end{equation}
 Subtracting the Equation~\ref{eq:first} from Equation~\ref{eq:second}, we find
 \begin{eqnarray}
-   \nonumber x_2^2 - 2 x_2 x_0 &=& \tau_2^2 - 2 \tau_2 \tau_0\\
-   \nonumber 2 \tau_2 \tau_0   &=& \tau_2^2 - x_2^2 + 2 x_2 x_0\\
-   \tau_0 &=&
-      \frac{1}{\tau_2} \left[\frac{\tau_2^2 - x_2^2}{2} + x_2 x_0\right].
+   \nonumber
+   x_2^2 - 2 x_2 x_0 &=& \tau_2^2 - 2 \tau_2 \tau_0\\
+   \nonumber
+   2 x_2 x_0 &=& x_2^2 - \tau_2^2 + 2 \tau_2 \tau_0\\
+   x_0 &=& \frac{x_2^2 - \tau_2^2}{2 x_2} + \left[\frac{\tau_2}{x_2}\right]
+   \tau_0.
    \label{eq:t-x}
 \end{eqnarray}
 
@@ -194,23 +196,34 @@ Equation~\ref{eq:second} but has a different form.
 \end{equation}
 Subtracting Equation~\ref{eq:first} from Equation~\ref{eq:third}, we find
 \begin{equation}
-   \tau_0 = \frac{1}{\tau_3} \left[ \frac{\tau_3^2 - y_3^2}{2} + y_3
-   y_0\right].
+   y_0 = \frac{y_3^2 - \tau_3^2}{2 y_3} + \left[\frac{\tau_3}{y_3}\right]
+   \tau_0.
    \label{eq:t-y}
 \end{equation}
 
-\subsection{Eliminating $\tau_0$}
+\subsection{Solving for $\tau_0$}
 
-Setting the right-hand side of Equation~\ref{eq:t-x} equal to the right-hand
-side of Equation~\ref{eq:t-y}, we find
+Now we are in position to bring everything together. Substituting
+Equations~\ref{eq:t-x} and~\ref{eq:t-y} into Equation~\ref{eq:first}, we find
 \begin{equation}
-   \frac{\tau_3^2 - y_3^2}{2} + y_3 y_0 = \frac{\tau_3}{\tau_2}
-   \left[\frac{\tau_2^2 - x_2^2}{2} + x_2 x_0\right],
+   \left[\frac{x_2^2 - \tau_2^2}{2 x_2} + \left[\frac{\tau_2}{x_2}\right]
+   \tau_0\right]^2
+   + \left[\frac{y_3^2 - \tau_3^2}{2 y_3} + \left[\frac{\tau_3}{y_3}\right]
+   \tau_0\right]^2 - \tau_0^2 = 0.
 \end{equation}
-which results in
+With respect to $\tau_0$, the constant piece on the left-hand side is
 \begin{equation}
-   y_0 = \frac{1}{y_3} \left[ \frac{\tau_3}{\tau_2} \left[ \frac{\tau_2^2 -
-   x_2^2}{2} + x_2 x_0\right] - \frac{\tau_3^2 - y_3^2}{2} \right].
+   c = \left[\frac{x_2^2 - \tau_2^2}{2 x_2}\right]^2 + \left[\frac{y_3^2 -
+   \tau_3^2}{2 y_3}\right]^2.
+\end{equation}
+The coefficient of the linear term is
+\begin{equation}
+   b = \left[1 - \frac{\tau_2^2}{x_2^2}\right] \tau_2 + \left[1 -
+   \frac{\tau_3^2}{y_3^2}\right] \tau_3.
+\end{equation}
+The coefficient of the quadratic term is
+\begin{equation}
+   a = \frac{\tau_2^2}{x_2^2} + \frac{\tau_3^2}{y_3^2} - 1.
 \end{equation}
 
 %\bibliographystyle{plainnat}
