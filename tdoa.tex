@@ -183,6 +183,22 @@ Subtracting the Equation~\ref{eq:first} from Equation~\ref{eq:second}, we find
    2 x_2 x_0 &=& x_2^2 - \tau_2^2 + 2 \tau_2 \tau_0\\
    x_0 &=& \frac{x_2^2 - \tau_2^2}{2 x_2} + \left[\frac{\tau_2}{x_2}\right]
    \tau_0.
+\end{eqnarray}
+Here we introduce for convenience a dimensionless, known value,
+\begin{equation}
+   \cos\theta = \frac{\tau_2}{x_2} = \frac{v t_2}{x_2},
+\end{equation}
+which is the ratio between the radial distance traveled by the wavefront, as it
+passes from the first to the second sensor, and the distance between the
+sensors.  This ratio is expressed as a cosine because it is the ratio of the
+lengths of two legs of a right triangle.  The angle $\theta$ is the angle
+between the displacement vector from $(x_0, y_0)$ toward the first detector and
+the positive $x$ axis.
+
+In terms of this ratio, we have
+\begin{eqnarray}
+   x_0 &=& \left[\frac{1 - \cos^2\theta}{2}\right] x_2 + [\cos\theta]\tau_0\\
+   x_0 &=& \frac{x_2 \sin^2\theta}{2} + \tau_0\cos\theta.
    \label{eq:t-x}
 \end{eqnarray}
 
@@ -198,32 +214,39 @@ Subtracting Equation~\ref{eq:first} from Equation~\ref{eq:third}, we find
 \begin{equation}
    y_0 = \frac{y_3^2 - \tau_3^2}{2 y_3} + \left[\frac{\tau_3}{y_3}\right]
    \tau_0.
-   \label{eq:t-y}
 \end{equation}
+Here, too, we introduce a dimensionless, known value,
+\begin{equation}
+   \sin\theta = \frac{\tau_3}{y_3} = \frac{v t_3}{y_3},
+\end{equation}
+which is the ratio between the radial distance traveled by the wavefront, as it
+passes from the first to the third sensor, and the distance between the
+sensors.  This ratio is expressed as a sine because it is the ratio of the
+lengths of two legs of a right triangle.  The same angle $\theta$ applies but
+through the complementary trigonometric function.  In terms of this ratio, we
+have
+\begin{eqnarray}
+   y_0 &=& \left[\frac{1 - \sin^2\theta}{2}\right] y_3 + [\sin\theta]\tau_0\\
+   y_0 &=& \frac{y_3\cos^2\theta}{2} + \tau_0\sin\theta.
+   \label{eq:t-y}
+\end{eqnarray}
 
 \subsection{Solving for $\tau_0$}
 
 Now we are in position to bring everything together. Substituting
 Equations~\ref{eq:t-x} and~\ref{eq:t-y} into Equation~\ref{eq:first}, we find
+\begin{eqnarray}
+   \left[\frac{x_2\sin^2\theta}{2} + \tau_0\cos\theta\right]^2
+   + \left[\frac{y_3\cos^2\theta}{2} + \tau_0\sin\theta\right]^2
+   = \tau_0^2.
+\end{eqnarray}
+The quadratic term vanishes, and so
 \begin{equation}
-   \left[\frac{x_2^2 - \tau_2^2}{2 x_2} + \left[\frac{\tau_2}{x_2}\right]
-   \tau_0\right]^2
-   + \left[\frac{y_3^2 - \tau_3^2}{2 y_3} + \left[\frac{\tau_3}{y_3}\right]
-   \tau_0\right]^2 - \tau_0^2 = 0.
-\end{equation}
-With respect to $\tau_0$, the constant piece on the left-hand side is
-\begin{equation}
-   c = \left[\frac{x_2^2 - \tau_2^2}{2 x_2}\right]^2 + \left[\frac{y_3^2 -
-   \tau_3^2}{2 y_3}\right]^2.
-\end{equation}
-The coefficient of the linear term is
-\begin{equation}
-   b = \left[1 - \frac{\tau_2^2}{x_2^2}\right] \tau_2 + \left[1 -
-   \frac{\tau_3^2}{y_3^2}\right] \tau_3.
-\end{equation}
-The coefficient of the quadratic term is
-\begin{equation}
-   a = \frac{\tau_2^2}{x_2^2} + \frac{\tau_3^2}{y_3^2} - 1.
+   \tau_0 =
+      -\frac{
+         \left[x_2\sin^2\theta\right]^2 +
+         \left[y_3\cos^2\theta\right]^2}{
+         4[x_2\:\sin\theta + y_3\:\cos\theta]\:\sin\theta\:\cos\theta}.
 \end{equation}
 
 %\bibliographystyle{plainnat}
