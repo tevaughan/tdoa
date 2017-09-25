@@ -83,25 +83,26 @@ Arrival at Each of Three Detectors}
 
 \begin{abstract}
 
-   If the radius of a circular wavefront, centered on a point $p$ at
-   coordinates $(x_0,y_0)$ in the plane, increase with constant speed $v$, then
-   an array of three detectors, arranged in a triangle of nonzero area, can be
-   used to find $x_0$ and $y_0$.
+   If the radius of a circular wavefront, whose center is at coordinates
+   $(x_0,y_0)$ in the plane, increase with constant speed $v$, then an array of
+   three detectors, arranged in a right triangle, can be used to find $x_0$ and
+   $y_0$.
 
 \end{abstract}
 
 \section{Introduction}
 
-An array of three sensors, each of which records the time of the passage of the
-front of an expanding wave, can be used to locate the epicenter of the wave.
-The solution, however, is hard to find in closed form unless the sensors be
-arranged in a right triangle.
+An array of three detectors, each recording the time of the passage of the
+front of a wave expanding in the plane of the detectors, can be used to locate
+the center of the wavefront.  The solution, however, is hard to find in closed
+form unless the detectors be arranged in a right triangle.
 
 \section{Problem}
 
 At each vertex of a right triangle, a detector records the time of a circular
 wavefront's arrival.  The times refer to the same clock.  The wavefront expands
-with constant speed $v$ from a central point.  Find the location of the point.
+with constant speed $v$ from a center.  Find the coordinates of the center in
+terms of the recorded times and the coordinates of the detectors.
 
 \section{Coordinate System}
 
@@ -109,34 +110,37 @@ We must choose a coordinate system in which to solve the problem of converting
 the times of arrival into the coordinates $(x_0, y_0)$ of the center of the
 wavefront.
 
-Let us place the spatial origin at the first detector, which is situated at the
-right angle of the triangle, and the temporal origin at the time of the
-wavefront's arrival at that detector.  So the first detector has coordinates
-$(x_1, y_1) = (0, 0)$, and the wavefront arrives there at time~$t_1 = 0$.
+Let us locate the spatial origin and the first detector at the right angle of
+the triangle, and let us locate the temporal origin at the time of the
+wavefront's arrival at the first detector.  So the first detector has
+coordinates $(x_1, y_1) = (0, 0)$, and the wavefront arrives there at time~$t_1
+= 0$.
 
-Suppose that the second detector is located at a nonzero distance from the
-first.  Let us choose the direction from the first detector toward the second
+Let us choose the direction from the first detector toward the second
 as the direction of the positive $x$~axis.  So the second detector has
 coordinates $(x_2, y_2) = (x_2, 0)$, and the wavefront arrives there at
 time~$t_2$.  Because of our choice, $x_2 > 0$.
 
-Finally, the third detector has coordinates $(0, y_3)$, and the wavefront
-arrives there at time~$t_3$.  Let us choose the direction of the $y$~axis so
-that $y_3 > 0$.
+Finally, the third detector has coordinates $(x_3, y_3) = (0, y_3)$, and the
+wavefront arrives there at time~$t_3$.  Let us choose the direction of the
+$y$~axis so that $y_3 > 0$.
 
 \section{Solution}
 
 We consider the arrival of the wavefront at each detector in turn.  In each
 case,
 \begin{equation}
-   [x_i - x_0]^2 + [y_i - y_0]^2 = v^2 [t_i - t_0]^2,
+   \left[x_i - x_0\right]^2 + \left[y_i - y_0\right]^2 = v^2 \left[t_i -
+   t_0\right]^2,
 \end{equation}
 where $i \in \{1, 2, 3\}$, and $v$ is the speed of the wavefront.  This
-indicates the relationship between the known coordinates $(x_i, y_i)$ of the
+indicates the relationships among the known coordinates $(x_i, y_i)$ of the
 $i$th detector, the known time of arrival $t_i$ at that detector, the unknown
 coordinates $(x_0, y_0)$ of the center of the wavefront, and the unknown time
-$t_0$ at which the wavefront began its radiation from that point.  There are
+$t_0$ at which the wavefront began its radiation from the center.  There are
 three independent equations, one for each detector, and three unknown values.
+
+\subsection{Wavefront Displacement}
 
 Let us simplify our notation a bit by a change of variables.  Let us express
 the signed distance traveled by the wavefront, between time~0 and any of the
@@ -147,10 +151,40 @@ four given times, as follows:
    \tau_2 &=& vt_2\\
    \tau_3 &=& vt_3
 \end{eqnarray}
-Let us call each of these a \emph{wavefront displacement}.  Then our
-fundamental equation becomes
+Let us call each of these a \emph{wavefront displacement}.
+
+The wavefront displacement $\tau_0$ is negative because it corresponds to the
+reverse motion of the wavefront from the first detector toward the wavefront's
+center.  The distance $-\tau_0$ is the radial distance between the center and
+the first detector.
+
+Because each wavefront displacement has, as its starting point, the radial size
+of the wavefront as it crosses the first detector and, as its ending point, the
+radial size as the wavefront crosses the point indicated by the subscript
+(either the number of a detector or else zero for the wavefront's center),
+$\tau_1$ is zero by definition.  That is, the change in the radial size of the
+wavefront from the time when it crosses the first detector until it crosses the
+\emph{same} detector is just zero because the start and the end of that
+displacement are the same.
+
+If the wavefront reach the first detector before the second, then $\tau_2$ is
+the radial distance traveled by the wavefront after it has passed the first
+detector and until it has reached the second.  A negative value indicates that
+the wavefront reached the second detector before the first.  In that case,
+$-\tau_2$ is the radial distance traveled by the wavefront after it has passed
+the second detector and until it has reached the first.
+
+If the wavefront reach the first detector before the third, then $\tau_3$ is
+the radial distance traveled by the wavefront after it has passed the first
+detector and until it has reached the third.  A negative value indicates that
+the wavefront reached the third detector before the first.  In that case,
+$-\tau_3$ is the radial distance traveled by the wavefront after it has passed
+the third detector and until it has reached the first.
+
+In terms of wavefront displacements our fundamental equation becomes
 \begin{equation}
-   [x_i - x_0]^2 + [y_i - y_0]^2 = [\tau_i - \tau_0]^2.
+   \left[x_i - x_0\right]^2 + \left[y_i - y_0\right]^2 = \left[\tau_i -
+   \tau_0\right]^2.
 \end{equation}
 The unknowns are $x_0$, $y_0$, and $\tau_0$. Everything else is known, and the
 knowns allow us to write down three equations, enough to solve for the
@@ -172,7 +206,7 @@ The equation at the second detector is more complicated than the equation at
 the first.  Among the three known values at the detector, only the
 $y$~coordinate of the detector is zero.
 \begin{equation}
-   [x_2 - x_0]^2 + y_0^2 = [\tau_2 - \tau_0]^2
+   \left[x_2 - x_0\right]^2 + y_0^2 = \left[\tau_2 - \tau_0\right]^2
    \label{eq:second}
 \end{equation}
 Subtracting the Equation~\ref{eq:first} from Equation~\ref{eq:second}, we find
@@ -181,73 +215,71 @@ Subtracting the Equation~\ref{eq:first} from Equation~\ref{eq:second}, we find
    x_2^2 - 2 x_2 x_0 &=& \tau_2^2 - 2 \tau_2 \tau_0\\
    \nonumber
    2 x_2 x_0 &=& x_2^2 - \tau_2^2 + 2 \tau_2 \tau_0\\
-   x_0 &=& \frac{x_2^2 - \tau_2^2}{2 x_2} + \left[\frac{\tau_2}{x_2}\right]
-   \tau_0.
+   x_0 &=& \frac{1}{2}\left[1 - \frac{\tau_2^2}{x_2^2}\right] x_2 +
+           \left[\frac{\tau_2}{x_2}\right] \tau_0.
 \end{eqnarray}
 Here we introduce for convenience a dimensionless, known value,
 \begin{equation}
-   \cos\theta = \frac{\tau_2}{x_2} = \frac{v t_2}{x_2},
+   \alpha_2 = \frac{\tau_2}{x_2} = \frac{v t_2}{x_2},
 \end{equation}
-which is the ratio between the radial distance traveled by the wavefront, as it
-passes from the first to the second sensor, and the distance between the
-sensors.  This ratio is expressed as a cosine because it is the ratio of the
-lengths of two legs of a right triangle.  The angle $\theta$ is the angle
-between the displacement vector from $(x_0, y_0)$ toward the first detector and
-the positive $x$ axis.
-
-In terms of this ratio, we have
-\begin{eqnarray}
-   x_0 &=& \left[\frac{1 - \cos^2\theta}{2}\right] x_2 + [\cos\theta]\tau_0\\
-   x_0 &=& \frac{x_2 \sin^2\theta}{2} + \tau_0\cos\theta.
+which is the ratio between the wavefront displacement $\tau_2 = vt_2$ and the
+distance $x_2$ from the first detector to the second.  This ratio is constrained
+so that
+\begin{equation}
+   -1 \leq \alpha_2 \leq 1.
+\end{equation}
+In terms of $\alpha_2$, we have
+\begin{equation}
+   x_0 = \frac{1}{2}\left[x_2 - \alpha_2\tau_2\right] + \alpha_2\tau_0.
    \label{eq:t-x}
-\end{eqnarray}
+\end{equation}
 
 \subsection{Arrival at Third Detector}
 
 The equation at the third detector is as complicated as
 Equation~\ref{eq:second} but has a different form.
 \begin{equation}
-   x_0^2 + [y_3 - y_0]^2 = [\tau_3 - \tau_0]^2
+   x_0^2 + \left[y_3 - y_0\right]^2 = \left[\tau_3 - \tau_0\right]^2
    \label{eq:third}
 \end{equation}
 Subtracting Equation~\ref{eq:first} from Equation~\ref{eq:third}, we find
 \begin{equation}
-   y_0 = \frac{y_3^2 - \tau_3^2}{2 y_3} + \left[\frac{\tau_3}{y_3}\right]
-   \tau_0.
+   y_0 = \frac{1}{2}\left[1 - \frac{\tau_3^2}{y_3^2}\right] y_3 +
+         \left[\frac{\tau_3}{y_3}\right] \tau_0.
 \end{equation}
 Here, too, we introduce a dimensionless, known value,
 \begin{equation}
-   \sin\theta = \frac{\tau_3}{y_3} = \frac{v t_3}{y_3},
+   \alpha_3 = \frac{\tau_3}{y_3} = \frac{v t_3}{y_3},
 \end{equation}
-which is the ratio between the radial distance traveled by the wavefront, as it
-passes from the first to the third sensor, and the distance between the
-sensors.  This ratio is expressed as a sine because it is the ratio of the
-lengths of two legs of a right triangle.  The same angle $\theta$ applies but
-through the complementary trigonometric function.  In terms of this ratio, we
-have
-\begin{eqnarray}
-   y_0 &=& \left[\frac{1 - \sin^2\theta}{2}\right] y_3 + [\sin\theta]\tau_0\\
-   y_0 &=& \frac{y_3\cos^2\theta}{2} + \tau_0\sin\theta.
+which is the ratio between the wavefront displacement $\tau_3 = vt_3$ and the
+distance $y_3$ from the first detector to the third.  Like $\alpha_2$, the
+ratio $\alpha_3$ is constrained so that
+\begin{equation}
+   -1 \leq \alpha_3 \leq 1.
+\end{equation}
+In terms of this ratio, we have
+\begin{equation}
+   y_0 = \frac{1}{2}\left[y_3 - \alpha_3\tau_3\right] y_3 + \alpha_3\tau_0.
    \label{eq:t-y}
-\end{eqnarray}
+\end{equation}
 
 \subsection{Solving for $\tau_0$}
 
 Now we are in position to bring everything together. Substituting
 Equations~\ref{eq:t-x} and~\ref{eq:t-y} into Equation~\ref{eq:first}, we find
-\begin{eqnarray}
-   \left[\frac{x_2\sin^2\theta}{2} + \tau_0\cos\theta\right]^2
-   + \left[\frac{y_3\cos^2\theta}{2} + \tau_0\sin\theta\right]^2
-   = \tau_0^2.
-\end{eqnarray}
-The quadratic term vanishes, and so
 \begin{equation}
-   \tau_0 =
-      -\frac{
-         \left[x_2\sin^2\theta\right]^2 +
-         \left[y_3\cos^2\theta\right]^2}{
-         4[x_2\:\sin\theta + y_3\:\cos\theta]\:\sin\theta\:\cos\theta}.
+   a\tau_0^2 + b\tau_0 + c = 0,
 \end{equation}
+where
+\begin{eqnarray}
+   a &=& \alpha_2^2 + \alpha_3^2 - 1\\
+   \nonumber\\
+   b &=& \left[1 - \alpha_2^2\right]\tau_2 + \left[1 -
+         \alpha_3^2\right]\tau_3\\
+   \nonumber\\
+   c &=& \frac{x_2^2 + \alpha_2^2\tau_2^2 + y_3^2 + \alpha_3^2\tau_3^2}{4} -
+         \frac{\tau_2^2 + \tau_3^2}{2}.
+\end{eqnarray}
 
 %\bibliographystyle{plainnat}
 %
