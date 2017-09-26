@@ -2,7 +2,7 @@
 % vim: set sw=3 tw=79 expandtab:
 
 \newcommand{\doctitle}{Position in Plane from Time of Circular Wavefront's
-Arrival at Each of Three Detectors}
+Arrival at Each of Three Detectors (Version 1.2)}
 
 \documentclass[twocolumn]{article}
 
@@ -94,21 +94,18 @@ Arrival at Each of Three Detectors}
    the time of arrival at the first detector; if the wavefront arrive at the
    third detector at a time difference $t_3$ from the time of arrival at the
    first detector; then the solution is
-   \begin{small}
-   \begin{eqnarray*}
-      x_0 &=& \frac{\beta_2 x_2}{2} + \frac{ \alpha_2 \left[\sqrt{\beta_2
-              \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
-              \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3
-              \tau_3\right]}{2 \left[1 - \beta_2 - \beta_3\right]}\\
-      y_0 &=& \frac{\beta_3 y_3}{2} + \frac{ \alpha_3 \left[\sqrt{\beta_2
-              \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
-              \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3
-              \tau_3\right]}{2 \left[1 - \beta_2 - \beta_3\right]},
-   \end{eqnarray*}
-   \end{small}
+   \begin{equation*}
+      (x_0, y_0) = \frac{(\beta_2 x_2, \beta_3 x_3)}{2} + (\alpha_2, \alpha_3)
+                   \; \tau_0,
+   \end{equation*}
    where
    \begin{eqnarray*}
+      \tau_0 &=& \frac{\sqrt{\beta_2 \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2
+                 - \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3 \tau_3}{2
+                 \left[1 - \beta_2 - \beta_3\right]}\\
+      \\
       \tau_2 &=& vt_2\\
+      \\
       \tau_3 &=& vt_3\\
       \\
       \alpha_2 &=& \frac{\tau_2}{x_2}\\
@@ -116,16 +113,20 @@ Arrival at Each of Three Detectors}
       \alpha_3 &=& \frac{\tau_3}{x_3}\\
       \\
       \beta_2 &=& 1 - \alpha_2^2\\
+      \\
       \beta_3 &=& 1 - \alpha_3^2.
    \end{eqnarray*}
 \end{abstract}
 
 \section{Introduction}
 
-An array of three detectors, each recording the time of the passage of the
-front of a wave expanding in the plane of the detectors, can be used to locate
-the center of the wavefront.  The solution, however, is hard to find in closed
-form unless the detectors be arranged in a right triangle.
+A friend of mine wants to know how to take data from three acoustic sensors and
+to calculate the location of a touch-point on a surface.  The idea is that
+touching a surface causes sound waves to propagate from the touch-point. If
+each acoustic sensor register the time of the leading edge of the sonic
+disturbance, then it should be possible to calculate the location of the
+touch-point.  The solution, however, seems hard to find in closed form unless
+the detectors be arranged in a right triangle.
 
 \section{Problem}
 
@@ -404,28 +405,25 @@ of three of whose vertices is occupied by a detector.
 
 \subsection{Solving for $x_0$ and $y_0$}
 
-Equation~\ref{eq:t-x} can be rewritten as
+Equations~\ref{eq:t-x} and~\ref{eq:t-y} can be rewritten as
 \begin{equation}
-   x_0 = \frac{1}{2} \beta_2 x_2 + \alpha_2 \tau_0.
+   (x_0, y_0) = \frac{(\beta_2 x_2, \beta_3 x_3)}{2} + (\alpha_2, \alpha_3) \;
+                \tau_0,
 \end{equation}
-Plugging in Equation~\ref{eq:t}, we find
-\begin{equation}
-   x_0 = \frac{\beta_2 x_2}{2} + \frac{ \alpha_2 \left[\sqrt{\beta_2
-         \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 - \tau_3\right]^2\right]} -
-         \beta_2 \tau_2 - \beta_3 \tau_3\right]}{2 \left[1 - \beta_2 -
-         \beta_3\right]}.
-\end{equation}
-Similarly, after rewriting Equation~\ref{eq:t-y} as
-\begin{equation}
-   y_0 = \frac{1}{2} \beta_3 x_3 + \alpha_3 \tau_0,
-\end{equation}
-we find
-\begin{equation}
-   y_0 = \frac{\beta_3 y_3}{2} + \frac{ \alpha_3 \left[\sqrt{\beta_2
-         \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 - \tau_3\right]^2\right]} -
-         \beta_2 \tau_2 - \beta_3 \tau_3\right]}{2 \left[1 - \beta_2 -
-         \beta_3\right]}.
-\end{equation}
+where $\tau_0$ is given by Equation~\ref{eq:t}.
+
+\section{Conclusion}
+
+The location of the center of the wavefront has been determined in terms of the
+relative timing of the arrival of the wavefront at each of three sensors.
+
+A logical next step is to calculate how a fixed error in the timing measurement
+would affect the accuracy of the estimate of the location of the center.  In
+general, the accuracy should degrade as the center moves sufficiently far away
+from the array of detectors.
+
+A future release of the present paper may include an analysis of this and other
+likely errors in any realistic implementation.
 
 %\bibliographystyle{plainnat}
 %
