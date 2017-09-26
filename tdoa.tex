@@ -84,12 +84,40 @@ Arrival at Each of Three Detectors}
 \thispagestyle{fancy}
 
 \begin{abstract}
-
    If the radius of a circular wavefront, whose center is at coordinates
    $(x_0,y_0)$ in the plane, increase with constant speed $v$, then an array of
    three detectors, arranged in a right triangle, can be used to find $x_0$ and
-   $y_0$.
-
+   $y_0$.  If we choose the origin to be located at the first detector, which
+   is at the right angle; if we choose the second detector to be located at
+   $(x_2, 0)$; if we choose the third detector to be located at $(0, y_3)$; if
+   the wavefront arrive at the second detector at a time difference $t_2$ from
+   the time of arrival at the first detector; if the wavefront arrive at the
+   third detector at a time difference $t_3$ from the time of arrival at the
+   first detector; then the solution is
+   \begin{small}
+   \begin{eqnarray*}
+      x_0 &=& \frac{\beta_2 x_2}{2} + \frac{ \alpha_2 \left[\sqrt{\beta_2
+              \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
+              \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3
+              \tau_3\right]}{2 \left[1 - \beta_2 - \beta_3\right]}\\
+      y_0 &=& \frac{\beta_3 y_3}{2} + \frac{ \alpha_3 \left[\sqrt{\beta_2
+              \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
+              \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3
+              \tau_3\right]}{2 \left[1 - \beta_2 - \beta_3\right]},
+   \end{eqnarray*}
+   \end{small}
+   where
+   \begin{eqnarray*}
+      \tau_2 &=& vt_2\\
+      \tau_3 &=& vt_3\\
+      \\
+      \alpha_2 &=& \frac{\tau_2}{x_2}\\
+      \\
+      \alpha_3 &=& \frac{\tau_3}{x_3}\\
+      \\
+      \beta_2 &=& 1 - \alpha_2^2\\
+      \beta_3 &=& 1 - \alpha_3^2.
+   \end{eqnarray*}
 \end{abstract}
 
 \section{Introduction}
@@ -155,10 +183,11 @@ four given times, as follows:
 \end{eqnarray}
 Let us call each of these a \emph{wavefront displacement}.
 
-The wavefront displacement $\tau_0$ is negative because it corresponds to the
-reverse motion of the wavefront from the first detector toward the wavefront's
-center.  The distance $-\tau_0$ is the radial distance between the center and
-the first detector.
+The wavefront displacement $\tau_0$ is negative because $t_0$ is negative;
+$\tau_0$ corresponds to the reverse motion of the wavefront from its crossing
+of the location of the first detector and backward in time toward the
+wavefront's center.  The distance $-\tau_0$ is the radial distance between the
+center and the first detector.
 
 Because each wavefront displacement has, as its starting point, the radial size
 of the wavefront as it crosses the first detector and, as its ending point, the
@@ -261,7 +290,7 @@ ratio $\alpha_3$ is constrained so that
 \end{equation}
 In terms of this ratio, we have
 \begin{equation}
-   y_0 = \frac{1}{2}\left[y_3 - \alpha_3\tau_3\right] y_3 + \alpha_3\tau_0.
+   y_0 = \frac{1}{2}\left[y_3 - \alpha_3\tau_3\right] + \alpha_3\tau_0.
    \label{eq:t-y}
 \end{equation}
 
@@ -345,8 +374,58 @@ Next, we evaluate
                    \left[\tau_2 - \tau_3\right]^2\\
    \nonumber
               && + \left[1 - \alpha_3^2\right] \left[x_2^2 - \tau_2^2\right]\\
-              && + \left[1 - \alpha_2^2\right] \left[y_3^2 - \tau_3^2\right].
+   \nonumber
+              && + \left[1 - \alpha_2^2\right] \left[y_3^2 - \tau_3^2\right]\\
+   b^2 - 4ac &=& \beta_2 \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
+                 \tau_3\right]^2\right],
 \end{eqnarray}
+where
+\begin{eqnarray}
+   \beta_2 &=& 1 - \alpha_2^2\\
+   \beta_3 &=& 1 - \alpha_3^2.
+\end{eqnarray}
+Finally, we have
+\begin{equation}
+   \tau_0 = \frac{ \sqrt{\beta_2 \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 -
+            \tau_3\right]^2\right]} - \beta_2 \tau_2 - \beta_3 \tau_3 }{2
+            \left[1 - \beta_2 - \beta_3\right]}.
+   \label{eq:t}
+\end{equation}
+We must select the positive branch for the square root because $\tau_0 < 0$.
+We can see that the form is correct by studying a special case.  Consider the
+case in which $(x_0, y_0)$ is located so that the wavefront arrives at all
+three detectors simultaneously.  In that case, $\tau_2 = \tau_3 = 0$, and
+$\beta_2 = \beta_3 = 1$.  The denominator becomes negative, and the terms
+outside the root become zero; so we much use the positive root in order for
+$\tau_0$ to be negative.  If we specify the same case further, so that $x_2 =
+y_3 = a$, then we find $\tau_0 = -\frac{a}{\sqrt{2}}$, just as we should expect
+when the center of the wavefront is located in the center of the square, each
+of three of whose vertices is occupied by a detector.
+
+\subsection{Solving for $x_0$ and $y_0$}
+
+Equation~\ref{eq:t-x} can be rewritten as
+\begin{equation}
+   x_0 = \frac{1}{2} \beta_2 x_2 + \alpha_2 \tau_0.
+\end{equation}
+Plugging in Equation~\ref{eq:t}, we find
+\begin{equation}
+   x_0 = \frac{\beta_2 x_2}{2} + \frac{ \alpha_2 \left[\sqrt{\beta_2
+         \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 - \tau_3\right]^2\right]} -
+         \beta_2 \tau_2 - \beta_3 \tau_3\right]}{2 \left[1 - \beta_2 -
+         \beta_3\right]}.
+\end{equation}
+Similarly, after rewriting Equation~\ref{eq:t-y} as
+\begin{equation}
+   y_0 = \frac{1}{2} \beta_3 x_3 + \alpha_3 \tau_0,
+\end{equation}
+we find
+\begin{equation}
+   y_0 = \frac{\beta_3 y_3}{2} + \frac{ \alpha_3 \left[\sqrt{\beta_2
+         \beta_3 \left[x_2^2 + y_3^2 - \left[\tau_2 - \tau_3\right]^2\right]} -
+         \beta_2 \tau_2 - \beta_3 \tau_3\right]}{2 \left[1 - \beta_2 -
+         \beta_3\right]}.
+\end{equation}
 
 %\bibliographystyle{plainnat}
 %
