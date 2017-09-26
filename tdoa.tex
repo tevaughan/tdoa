@@ -280,6 +280,72 @@ where
    c &=& \frac{x_2^2 + \alpha_2^2\tau_2^2 + y_3^2 + \alpha_3^2\tau_3^2}{4} -
          \frac{\tau_2^2 + \tau_3^2}{2}.
 \end{eqnarray}
+In order to use the quadratic formula, we first evaluate
+\begin{equation}
+   b^2 = \left[1 - \alpha_2^2\right]^2 \tau_2^2 + 2 \left[1 -
+   \alpha_2^2\right]\left[1 - \alpha_3^2\right] \tau_2 \tau_3 + \left[1 -
+   \alpha_3^2\right]^2 \tau_3^2.
+\end{equation}
+Next, we evaluate
+\begin{equation}
+   4ac = \left[\alpha_2^2 + \alpha_3^2 - 1\right] \left[x_2^2 + \alpha_2^2
+   \tau_2^2 + y_3^2 + \alpha_3^2 \tau_3^2 - 2\left[\tau_2^2 +
+   \tau_3^2\right]\right],
+\end{equation}
+which we can write as
+\begin{eqnarray}
+   \nonumber
+   4ac &=&
+           \tau_2^2 + \alpha_2^4 \tau_2^2 + \alpha_2^2 y_3^2 + \alpha_2^2
+           \alpha_3^2 \tau_3^2 - 2 \alpha_2^2 \left[\tau_2^2 + \tau_3^2\right]
+           +\\
+   \nonumber
+   &&
+           \alpha_3^2 x_2^2 + \alpha_3^2 \alpha_2^2 \tau_2^2 + \tau_3^2 +
+           \alpha_3^4 \tau_3^2 - 2 \alpha_3^2 \left[\tau_2^2 + \tau_3^2\right]
+           +\\
+   \nonumber
+   &&
+           2 \left[\tau_2^2 + \tau_3^2\right] - x_2^2 - \alpha_2^2 \tau_2^2 -
+           y_3^2 - \alpha_3^2 \tau_3^2\\
+   \nonumber
+   &=&
+           \alpha_2^4 \tau_2^2 + \alpha_2^2 \alpha_3^2 \tau_3^2 - 2 \alpha_2^2
+           \tau_3^2 - \left[1 - \alpha_3^2\right] x_2^2 +\\
+   \nonumber
+   &&
+           \alpha_3^4 \tau_3^2 + \alpha_3^2 \alpha_2^2 \tau_2^2 - 2 \alpha_3^2
+           \tau_2^2 - \left[1 - \alpha_2^2\right] y_3^2 +\\
+   \nonumber
+   &&
+           3 \left[\left[1 - \alpha_2^2\right]\tau_2^2 + \left[1 -
+           \alpha_3^2\right] \tau_3^2\right]\\
+   \nonumber
+   4ac &=&
+           \alpha_2^4 \tau_2^2 + \left[1 - \alpha_2^2\right] \left[1 -
+           \alpha_3^2\right] \tau_3^2 - \alpha_2^2\tau_3^2 - \left[1 -
+           \alpha_3^2\right] x_2^2 +\\
+   \nonumber
+   &&
+           \alpha_3^4 \tau_3^2 + \left[1 - \alpha_3^2\right] \left[1 -
+           \alpha_2^2\right] \tau_2^2 - \alpha_3^2 \tau_2^2 - \left[1 -
+           \alpha_2^2\right] y_3^2 +\\
+   \nonumber
+   &&
+           2 \left[\left[1 - \alpha_2^2\right]\tau_2^2 + \left[1 -
+           \alpha_3^2\right] \tau_3^2\right].
+\end{eqnarray}
+Next, we evaluate
+\begin{eqnarray}
+   \nonumber
+   b^2 - 4ac &=& \left[1 - \alpha_3^2\right] x_2^2 + \left[1 -
+                 \alpha_2^2\right] y_3^2 - \left[\tau_2^2 + \tau_3^2\right] +\\
+   \nonumber
+   &&
+                 \alpha_2^2 \tau_3^2 + \alpha_3^2 \tau_2^2 - \left[1 -
+                 \alpha_2^2\right] \left[1 - \alpha_3^2\right] \left[\tau_2 -
+                 \tau_3\right]^2.
+\end{eqnarray}
 
 %\bibliographystyle{plainnat}
 %
