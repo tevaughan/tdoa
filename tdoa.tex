@@ -86,16 +86,21 @@ Arrival at Each of Three Detectors (Version 1.4)}
 
 \begin{abstract}
    If the radius of a circular wavefront increase with constant speed $v$, then
-   an array of three detectors, arranged in a right triangle, can be used to
-   find the wavefront's center at $(x_0, y_0)$.  If we choose the origin to be
-   located at the first detector, which is at the right angle; if we choose the
-   second detector to be located at $(x_2, 0)$; if we choose the third detector
-   to be located at $(0, y_3)$; if the wavefront arrive at the second detector
-   at a time difference $t_2$ from the time of arrival at the first detector;
-   if the wavefront arrive at the third detector at a time difference $t_3$
-   from the time of arrival at the first detector; then the solution is
+   an array of three detectors, arranged in a right triangle in the plane of
+   the wavefront, can be used to find the wavefront's center at $(x_0, y_0)$.
+   \begin{enumerate}
+      \item If we choose the origin to be located at the first detector, which
+         is at the right angle;
+      \item if we choose the second detector to be located at $(x_2, 0)$;
+      \item if we choose the third detector to be located at $(0, y_3)$;
+      \item if the wavefront arrive at the second detector at a time difference
+         $t_2$ from the time of arrival at the first detector; and
+      \item if the wavefront arrive at the third detector at a time difference
+         $t_3$ from the time of arrival at the first detector,
+   \end{enumerate}
+   then the solution is
    \begin{equation*}
-      (x_0, y_0) = \frac{(\beta_2 x_2, \beta_3 x_3)}{2} + (\alpha_2, \alpha_3)
+      (x_0, y_0) = \frac{1}{2}(\beta_2 x_2, \beta_3 x_3) + (\alpha_2, \alpha_3)
                    \; \tau_0,
    \end{equation*}
    where
@@ -116,11 +121,16 @@ Arrival at Each of Three Detectors (Version 1.4)}
 
 A friend of mine wants to know how to take data from three acoustic sensors and
 to calculate the location of a touch-point on a surface.  The idea is that
-touching a surface causes sound waves to propagate from the touch-point. If
+touching the surface causes sound waves to propagate from the touch-point. If
 each acoustic sensor register the time of the leading edge of the sonic
 disturbance, then it should be possible to calculate the location of the
-touch-point.  The solution, however, seems hard to find in closed form unless
-the detectors be arranged in a right triangle.
+touch-point.  The closed-form solution, however, seems hard to find unless the
+detectors be arranged in a right triangle.  So an approximately
+right-triangular arrangment of the sensors is a design constraint.  A small
+error in the knowledge of the location of each sensor will cause a systematic
+error in the solution.  Such systematic errors, including small departures from
+non-right-triangularity, can be corrected by way of a calibration procedure.  A
+future version of the paper might discuss the approach to calibration.
 
 \section{Problem}
 
@@ -500,8 +510,8 @@ would affect the accuracy of the estimate of the location of the center.  In
 general, the accuracy should degrade as the center moves sufficiently far away
 from the array of detectors.
 
-A future release of the present paper may include an analysis of this and other
-likely errors in any realistic implementation.
+A future release of the present paper might include an analysis of this and
+other likely errors in any realistic implementation.
 
 %\bibliographystyle{plainnat}
 %
