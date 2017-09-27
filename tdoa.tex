@@ -130,50 +130,90 @@ wavefront's arrival.  The times refer to the same clock.  The wavefront expands
 with constant speed $v$ from a center.  Find the coordinates of the center in
 terms of the recorded times and the coordinates of the detectors.
 
-\begin{figure*}
+\begin{figure}
    \begin{center}
    \begin{asy}
-      size(13cm);
-      draw((0,0)--(1,0), Arrow);
-      draw((0,0)--(0,1), Arrow);
-      label("$x$", (1,0), E);
-      label("$y$", (0,1), N);
-      real cx=+0.8;
-      real cy=-0.3;
-      real x2=0.9;
-      real y3=0.6;
-      real r1=sqrt(cx*cx + cy*cy);
-      real r2=sqrt((cx-x2)*(cx-x2) + cy*cy);
-      real r3=sqrt(cx*cx + (cy-y3)*(cy-y3));
-      draw((0,0)--(cx,cy), magenta, Arrow);
-      label("$\tau_0$", (cx,cy)/2, S, magenta);
-      draw((cx+r1,cy)..(cx,cy+r1)..(cx-r1,cy), blue);
-      draw((cx+r2,cy)..(cx,cy+r2)..(cx-r2,cy), red);
-      draw((cx+r3,cy)..(cx,cy+r3)..(cx-r3,cy), green);
-      label("$(x_0,y_0)$", (cx,cy), S, magenta);
-      label("$(0,0)$", (0,0), W, blue);
-      label("$(x_2,0)$", (x2,0), SSW, red);
-      label("$(0,y_3)$", (0,y3), W, green);
-      pair u2=(x2-cx,0-cy)/r2;
-      pair p21=(cx,cy)+r1*u2;
-      draw(p21--(x2,0), red, Arrow);
-      draw((cx,cy)--(x2,0), gray+dashed);
-      label("$\tau_2$", (p21+(x2,0))/2, E, red);
-      pair u3=(0-cx,y3-cy)/r3;
-      pair p31=(cx,cy)+r1*u3;
-      draw(p31--(0,y3), green, Arrow);
-      draw((cx,cy)--p31, gray+dashed);
-      label("$\tau_3$", (p31+(0,y3))/2, E, green);
+      size(9cm);
+      real x0=+0.8; real y0=-0.3; // center of wavefront
+      real x1=+0.0; real y1=+0.0; // detector 1
+      real x2=+1.0; real y2=+0.0; // detector 2
+      real x3=+0.0; real y3=+0.6; // detector 3
+      pair c =(x0,y0);            // center of wavefront
+      pair d1=(x1,y1);            // detector 1
+      pair d2=(x2,y2);            // detector 2
+      pair d3=(x3,y3);            // detector 3
+      real r1=sqrt((x1-x0)*(x1-x0) + (y1-y0)*(y1-y0)); // center to d1
+      real r2=sqrt((x2-x0)*(x2-x0) + (y2-y0)*(y2-y0)); // center to d2
+      real r3=sqrt((x3-x0)*(x3-x0) + (y3-y0)*(y3-y0)); // center to d3
+      real rmax=max(r1,r2,r3);
+      pair u1=(x1-x0,y1-y0)/r1; // unit vec from center to d1
+      pair u2=(x2-x0,y2-y0)/r2; // unit vec from center to d2
+      pair u3=(x3-x0,y3-y0)/r3; // unit vec from center to d3
+      real a1=atan2(u1.y,u1.x)*180/pi; // angle (deg) from center to d1
+      real a2=atan2(u2.y,u2.x)*180/pi; // angle (deg) from center to d2
+      real a3=atan2(u3.y,u3.x)*180/pi; // angle (deg) from center to d3
+      real amax=max(a1,a2,a3);
+      real amin=min(a1,a2,a3);
+      pair p12=c+r2*u1; pair p13=c+r3*u1;
+      pair p21=c+r1*u2; pair p23=c+r3*u2;
+      pair p31=c+r1*u3; pair p32=c+r2*u3;
+      pair rmax1=c+rmax*u1;
+      pair rmax2=c+rmax*u2;
+      pair rmax3=c+rmax*u3;
+      real xmax=max(x0,x1,x2,x3,rmax1.x,rmax2.x,rmax3.x);
+      real xmin=min(x0,x1,x2,x3,rmax1.x,rmax2.x,rmax3.x);
+      real ymax=max(y0,y1,y2,y3,rmax1.y,rmax2.y,rmax3.y);
+      real ymin=min(y0,y1,y2,y3,rmax1.y,rmax2.y,rmax3.y);
+      real dx=xmax-xmin; real dy=ymax-ymin;
+      real ticlen=max(dx,dy)/40;
+      real margfrac=0.03;
+      pair xaxbeg=(xmin-dx*margfrac,0);
+      pair xaxend=(xmax+dx*margfrac,0);
+      pair yaxbeg=(0,ymin-dy*margfrac);
+      pair yaxend=(0,ymax+dy*margfrac);
+      fill(d1--d2--d3--cycle, lightgray);
+      draw(xaxbeg--xaxend, Arrow);
+      draw(yaxbeg--yaxend, Arrow);
+      draw(c--rmax1, gray+dashed);
+      draw(c--rmax2, gray+dashed);
+      draw(c--rmax3, gray+dashed);
+      draw((xmin,y0)--(xmax,y0), gray+dotted);
+      draw((xmin,y3)--(xmax,y3), gray+dotted);
+      draw((x0,ymin)--(x0,ymax), gray+dotted);
+      draw((x2,ymin)--(x2,ymax), gray+dotted);
+      label("$x$", xaxend, E);
+      label("$y$", yaxend, N);
+      draw((x0,-0.5*ticlen)--(x0,+0.5*ticlen), magenta);
+      draw((x2,-0.5*ticlen)--(x2,+0.5*ticlen), red);
+      draw((-0.5*ticlen,y0)--(+0.5*ticlen,y0), magenta);
+      draw((-0.5*ticlen,y3)--(+0.5*ticlen,y3), deepgreen);
+      fill(circle(c, 0.35*ticlen), magenta);
+      fill(circle(d1, 0.35*ticlen), blue);
+      fill(circle(d2, 0.35*ticlen), red);
+      fill(circle(d3, 0.35*ticlen), deepgreen);
+      label("$x_0$", (x0,-0.5*ticlen), S, magenta);
+      label("$x_2$", (x2,-0.5*ticlen), S, red);
+      label("$y_0$", (-0.5*ticlen,y0), W, magenta);
+      label("$y_3$", (-0.5*ticlen,y3), W, deepgreen);
+      draw(arc(c,r1,amin,amax), blue);
+      draw(arc(c,r2,amin,amax), red);
+      draw(arc(c,r3,amin,amax), deepgreen);
+      draw(d1--c, magenta, Arrow);
+      draw(p21--d2, red, Arrow);
+      draw(p31--d3, deepgreen, Arrow);
+      label("$\tau_0$", (d1+c)/2, S, magenta);
+      label("$\tau_2$", (p21+d2)/2, E, red);
+      label("$\tau_3$", (p31+d3)/2, E, deepgreen);
    \end{asy}
    \end{center}
-   \caption{Detectors, coordinate system, and center of wavefront. In this
+   \caption{Detectors, coordinate system, wavefront, and its center. In this
    example, $\tau_2$, like $\tau_0$, is negative (as indicated by a
    displacement directed toward the center of the wavefront), but $\tau_3$ is
    positive (as indicated by a displacement directed away from the center of
    the wavefront).  The tail of every wavefront displacement is located on the
    blue circle, which passes through the origin at the first detector.}
    \label{fig:coordsys}
-\end{figure*}
+\end{figure}
 
 \section{Coordinate System}
 
