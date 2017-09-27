@@ -130,10 +130,10 @@ wavefront's arrival.  The times refer to the same clock.  The wavefront expands
 with constant speed $v$ from a center.  Find the coordinates of the center in
 terms of the recorded times and the coordinates of the detectors.
 
-\begin{figure}
+\begin{figure*}
    \begin{center}
    \begin{asy}
-      size(9cm);
+      size(13cm);
       draw((0,0)--(1,0), Arrow);
       draw((0,0)--(0,1), Arrow);
       label("$x$", (1,0), E);
@@ -145,21 +145,35 @@ terms of the recorded times and the coordinates of the detectors.
       real r1=sqrt(cx*cx + cy*cy);
       real r2=sqrt((cx-x2)*(cx-x2) + cy*cy);
       real r3=sqrt(cx*cx + (cy-y3)*(cy-y3));
-      draw((cx,cy)--(0,0), blue);
-      draw((cx,cy)--(x2,0), red);
-      draw((cx,cy)--(0,y3), green);
+      draw((0,0)--(cx,cy), magenta, Arrow);
+      label("$\tau_0$", (cx,cy)/2, S, magenta);
       draw((cx+r1,cy)..(cx,cy+r1)..(cx-r1,cy), blue);
       draw((cx+r2,cy)..(cx,cy+r2)..(cx-r2,cy), red);
       draw((cx+r3,cy)..(cx,cy+r3)..(cx-r3,cy), green);
-      label("$(x_0,y_0)$", (cx,cy), S);
-      label("$(0,0)$", (0,0), SW, blue);
-      label("$(x_2,0)$", (x2,0), N, red);
+      label("$(x_0,y_0)$", (cx,cy), S, magenta);
+      label("$(0,0)$", (0,0), W, blue);
+      label("$(x_2,0)$", (x2,0), SSW, red);
       label("$(0,y_3)$", (0,y3), W, green);
+      pair u2=(x2-cx,0-cy)/r2;
+      pair p21=(cx,cy)+r1*u2;
+      draw(p21--(x2,0), red, Arrow);
+      draw((cx,cy)--(x2,0), gray+dashed);
+      label("$\tau_2$", (p21+(x2,0))/2, E, red);
+      pair u3=(0-cx,y3-cy)/r3;
+      pair p31=(cx,cy)+r1*u3;
+      draw(p31--(0,y3), green, Arrow);
+      draw((cx,cy)--p31, gray+dashed);
+      label("$\tau_3$", (p31+(0,y3))/2, E, green);
    \end{asy}
    \end{center}
-   \caption{Detectors, coordinate system, and center of wavefront.}
+   \caption{Detectors, coordinate system, and center of wavefront. In this
+   example, $\tau_2$, like $\tau_0$, is negative (as indicated by a
+   displacement directed toward the center of the wavefront), but $\tau_3$ is
+   positive (as indicated by a displacement directed away from the center of
+   the wavefront).  The tail of every wavefront displacement is located on the
+   blue circle, which passes through the origin at the first detector.}
    \label{fig:coordsys}
-\end{figure}
+\end{figure*}
 
 \section{Coordinate System}
 
