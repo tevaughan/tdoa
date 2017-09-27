@@ -11,10 +11,13 @@ PDFNAME = $(DOCNAME).pdf
 all : $(PDFNAME)
 
 $(PDFNAME) : $(TEXNAME) logo.pdf fdl-1.3.tex
-	pdflatex $(TEXNAME)
-	pdflatex $(TEXNAME)
+	pdflatex $(DOCNAME)
+	asy $(DOCNAME)-*.asy
+	pdflatex $(DOCNAME)
+	pdflatex $(DOCNAME)
 
 clean :
+	@rm -fv *.asy
 	@rm -fv *.aux
 	@rm -fv *.log
 	@rm -fv *.out

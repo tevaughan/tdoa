@@ -1,5 +1,6 @@
 
 *.pdf
+*.asy
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
